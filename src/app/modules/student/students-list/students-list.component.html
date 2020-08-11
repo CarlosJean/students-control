@@ -1,0 +1,26 @@
+<div class="row align-items-between">
+    <h5 class="col-md-6 text-center"><strong>Listado de estudiantes</strong></h5>  
+    <label class="col-md-6 text-center"><a [routerLink]="['./create']">Registrar nuevo estudiante</a></label>    
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Matrícula</th>
+            <th>Carrera</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students | async">
+            <td>{{student.names}}</td>
+            <td>{{student.surnames}}</td>
+            <td>{{student.enrollment}}</td>
+            <td>{{student.career}}</td>
+            <td><a [routerLink]="" (click)="delete(student.id)">Eliminar</a> | <a [routerLink]="['./update',student.id]">Actualizar</a></td>
+        </tr>
+    </tbody>
+    
+</table>

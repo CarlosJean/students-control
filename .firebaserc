@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "auth-everything-6ef58": {
+      "hosting": {
+        "students-control": [
+          "auth-everything-6ef58"
+        ]
+      }
+    }
+  }
+}
