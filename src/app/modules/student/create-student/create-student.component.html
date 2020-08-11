@@ -8,14 +8,14 @@
 </div>
 <form class="container" (ngSubmit)="submit()">
     <div class="row form-group">
-        <input type="text" placeholder="Matrícula" class="form-control col-md-3" [(ngModel)]="formData.enrollment" [ngModelOptions]="{standalone: true}" [value]="formData.enrollment">
+        <input type="text" placeholder="Matrícula" class="form-control col-md-3" [(ngModel)]="formData.enrollment" [ngModelOptions]="{standalone: true}">
     </div>
     <div class="row form-group justify-content-start">
-        <input type="text" placeholder="Nombres del estudiante" class="col-md-4 form-control" [(ngModel)]="formData.names" [ngModelOptions]="{standalone: true}" [value]="formData.names"/>
-        <input type="text" placeholder="Apellidos del estudiante" class="col-md-4 offset-md-1 form-control" [(ngModel)]="formData.surnames" [ngModelOptions]="{standalone: true}" [value]="formData.surnames"/>
+        <input type="text" placeholder="Nombres del estudiante" class="col-md-4 form-control" [(ngModel)]="formData.names" [ngModelOptions]="{standalone: true}"/>
+        <input type="text" placeholder="Apellidos del estudiante" class="col-md-4 offset-md-1 form-control" [(ngModel)]="formData.surnames" [ngModelOptions]="{standalone: true}"/>
     </div>
     <div class="row">
-        <input type="text" placeholder="Carrera" class="form-control" [(ngModel)]="formData.career" [ngModelOptions]="{standalone: true}" [value]="formData.career"/>
+        <input type="text" placeholder="Carrera" class="form-control" [(ngModel)]="formData.career" [ngModelOptions]="{standalone: true}"/>
     </div> 
     <div class="row justify-content-end mt-3">
         <input type="submit" class="btn btn-success">
