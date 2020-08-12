@@ -1,9 +1,6 @@
 import { Component, OnInit, Optional } from '@angular/core';
-import { firestore } from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
-import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-create-student',
@@ -31,15 +28,14 @@ export class CreateStudentComponent implements OnInit {
     let action = this._activatedRoute.snapshot.url[0].path;    
 
     if (action == 'update'){
-      let documentId = this._activatedRoute.snapshot.url[1].path;
       this.isUpdate = true;
       this.formTitle = "Actualizar";
+      let documentId = this._activatedRoute.snapshot.url[1].path;
       this.searchStudent(documentId);
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   submit(){
     let documentId = this.db.createId();
@@ -51,10 +47,14 @@ export class CreateStudentComponent implements OnInit {
     this.formData.id = documentId;
 
     this.db.collection('student').doc(documentId).set(this.formData)
-    .then(()=>{alert(this.successMessage)})
+    .then(()=>{
+      this.error = false;
+      if(this.isUpdate){ this.successMessage = "Datos modificados exitosamente!";}
+      else{  this.successMessage = "Datos insertados exitosamente!"; }
+    })
     .catch(error=>{
-      alert(this.errorMessage+='\n'+error);
-      this.error = true;
+      this.error = false;
+      console.error(error);
     });      
   }  
 
@@ -67,7 +67,6 @@ export class CreateStudentComponent implements OnInit {
       this.formData.surnames = document.data().surnames;
       this.formData.enrollment = document.data().enrollment;
       this.formData.career = document.data().career;
-      console.log(this.formData);      
     });
   }
 }

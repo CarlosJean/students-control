@@ -1,7 +1,7 @@
 <h3><span>{{formTitle}}</span> estudiante</h3>
 <hr>
 <div class="alert alert-success" role="alert" *ngIf="error != null && !error">
-    <p>{{successMessage}}</p>
+    <p>{{successMessage}} <a [routerLink]="['/student/list']">Visualizar los estudiantes</a></p>
 </div>
 <div class="alert alert-error" role="alert" *ngIf="error">
     <p>{{errorMessage}}</p>

@@ -1,6 +1,6 @@
 <div class="row align-items-between">
     <h5 class="col-md-6 text-center"><strong>Listado de estudiantes</strong></h5>  
-    <label class="col-md-6 text-center"><a [routerLink]="['./create']">Registrar nuevo estudiante</a></label>    
+    <label class="col-md-6 text-center"><a [routerLink]="['../create']">Registrar nuevo estudiante</a></label>    
 </div>
 
 <table class="table">
@@ -19,7 +19,7 @@
             <td>{{student.surnames}}</td>
             <td>{{student.enrollment}}</td>
             <td>{{student.career}}</td>
-            <td><a [routerLink]="" (click)="delete(student.id)">Eliminar</a> | <a [routerLink]="['./update',student.id]">Actualizar</a></td>
+            <td><a [routerLink]="" (click)="delete(student.id)">Eliminar</a> | <a [routerLink]="['../update',student.id]">Actualizar</a></td>
         </tr>
     </tbody>
     
