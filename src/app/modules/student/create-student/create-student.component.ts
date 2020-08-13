@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CreateStudentComponent implements OnInit {
 
   formData = {
-    id:null,
+    id: null,
     names: null,
     surnames: null,
     enrollment: null,
@@ -51,6 +51,7 @@ export class CreateStudentComponent implements OnInit {
       this.error = false;
       if(this.isUpdate){ this.successMessage = "Datos modificados exitosamente!";}
       else{  this.successMessage = "Datos insertados exitosamente!"; }
+      this.cleanFormData();
     })
     .catch(error=>{
       this.error = false;
@@ -68,5 +69,15 @@ export class CreateStudentComponent implements OnInit {
       this.formData.enrollment = document.data().enrollment;
       this.formData.career = document.data().career;
     });
+  }
+
+  cleanFormData(){
+    this.formData = {
+      id: null,
+      names: null,
+      surnames: null,
+      enrollment: null,
+      career: null
+    };
   }
 }

@@ -10,9 +10,14 @@ import { CreateStudentComponent } from '../create-student/create-student.compone
 })
 export class StudentsListComponent implements OnInit {
 
-  students:Observable<any>;
+  students:Array<any>;
   constructor(private firestore:AngularFirestore) { 
-    this.students = this.firestore.collection('student').valueChanges();    
+
+    this.firestore.collection('student')
+    .valueChanges()
+    .subscribe(student=>{
+      this.students = student
+    });    
   }
 
   ngOnInit(): void {}
